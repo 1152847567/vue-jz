@@ -33,11 +33,27 @@
       }
     }
   }
+
+  function getFileByPath(fPath){
+    return new Promise()
+  }
+  // es7语法
+  async function getData(){
+    const data1 = await getFileByPath('./files/1.txt');
+    const data2 = await getFileByPath('./files/2.txt');
+    const data3 = await getFileByPath('./files/3.txt');
+    console.log(data1)
+    console.log(data2)
+    console.log(data3)
+  }
 </script>
+
+
 <style lang="less" scoped>
 /* 子组件的样式 */
 .app {
   overflow-x: hidden;
+  margin-bottom: 50px;
 }
 .v-enter {
   opacity: 0;
@@ -51,6 +67,5 @@
 .v-enter-active,
 .v-leave-active {
   transition: all 0.5s ease;
-
 }
 </style>

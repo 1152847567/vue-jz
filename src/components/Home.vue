@@ -6,7 +6,7 @@
         <img :src="item.img">
       </van-swipe-item>
     </van-swipe>
-    <div class="demo-icon">
+    <!-- <div class="demo-icon">
       <div class="van-col van-col--6">
         <i class="van-icon ">
           <img src="../assets/images/menu1.png">
@@ -41,83 +41,55 @@
         <i class="van-icon ">
           <img src="../assets/images/menu6.png">
         </i>
-        <span>location-o</span>
+        <span>联系我们</span>
       </div>
-    </div>
-    
+    </div> -->
+    <demo></demo>
   </div>
 </template>
 
 <script>
 import { Toast } from "vant";
+import demo from './homeChildrens/Demo.vue'
 // es6 的暴露方式 类似于 module.export = {}
 export default {
   data: () => ({
     lunbotuList: []
   }),
   methods: {
-    getlunbotu() {
-      this.$http.get("http://localhost:5000/api/getlunbo").then(result => {
-        // console.log(result.body)
-        const { status, message } = result.body;
-        if (status == 0) {
-          this.lunbotuList = message;
-          
-        } else {
-          Toast("获取数据失败");
-        }
-      });
+    async getlunbotu() {
+      const result = await this.$http.get("api/getlunbo");
+      // console.log(result.body)
+      const { status, message } = result.body;
+      if (status == 0) {
+        this.lunbotuList = message; 
+      } else {
+        Toast("获取数据失败");
+      } 
     }
+    
   },
   created() {
     this.getlunbotu();
+  },
+  components: {
+    demo
   }
 };
 </script>
 
 
 <style lang="less" scoped>
-//  设置less属性开启
-/* 子组件的样式 */
 @color: pink;
 .home {
   .home-swipe {
+    // overflow-x: hidden;
     height: 210px;
     img {
       width: 100%;
     }
   }
 }
-.demo-icon {
-  font-size: 0;
-  .demo-icon-list {
-    padding-top: 10px;
-    box-sizing: border-box;
-    min-height: calc(100vh - 65px);
-  }
-  .van-col {
-    float: none;
-    text-align: center;
-    width: 33.33%;
-    height: 100px;
-    display: inline-block;
-    vertical-align: middle;
-    span {
-      display: block;
-      padding: 0 5px;
-      font-size: 12px;
-      line-height: 14px;
-    }
-  }
-  .van-icon {
-    font-size: 32px;
-    margin: 15px 0;
-    color: #455a64;
-    img {
-      width: 60px;
-      height: 60px;
-    }
-  }
   
-}
+
 </style>

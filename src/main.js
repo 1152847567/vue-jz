@@ -4,13 +4,21 @@ import Vue from 'vue'
 import router from './router'
 import App from './App'
 // 引入vant UI
-import { NavBar,Tabbar, TabbarItem,Swipe, SwipeItem } from 'vant';
-Vue.use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem);
+import { NavBar,Tabbar,TabbarItem,Swipe,SwipeItem,Card,Toast,Button  } from 'vant';
+Vue.use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Card).use(Toast).use(Button);
 
+// 引入vue-resource 发送ajax
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+// 配置全局的跟路径
+Vue.http.options.root = 'http://localhost:5000/'
 
-// import 'animate.css/animate.css'
+// 定义全局时间过滤器
+import moment from 'moment'
+Vue.filter('dataFormat',function(datastr,pattern="YYYY-MM-DD HH:mm:ss"){
+  return moment(datastr).format(pattern);
+})
+
 // vue底层的性能优化
 Vue.config.productionTip = false
 
