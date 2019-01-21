@@ -3,8 +3,8 @@
   <div class="comment">
     <h2>发表评论</h2>
     <hr>
-    <textarea placeholder="请输入内容,最多120个字"></textarea>
-    <van-button size="large">点击评论</van-button> 
+    <textarea placeholder="请输入内容,最多120个字" v-model="msg"></textarea>
+    <van-button size="large" @click="addComment">点击评论</van-button> 
     <ul class="comment-con">
       <li v-for="(item,index) in list" :key="item.id">
         <p>
@@ -21,11 +21,15 @@
   </div>
 </template>
 <script>
+import {Toast} from 'vant';
+import moment from 'moment';
+// Vue.use(Toast);
 // es6 的暴露方式 类似于 module.export = {}
   export default {
     data: ()=>({
       list: [],
-      pageindex: 1
+      pageindex: 1,
+      msg: ''
     }),
     props: ['id'],
     created() {
@@ -46,6 +50,19 @@
       getMove(){
         this.pageindex++;
         this.getcomment();
+      },
+      async addComment(){
+        if(this.msg.trim().length===0){
+          return Toast('请输入要评论的内容！');
+        }
+        const result = await this.$http.post('api/postcomment/'+this.id,{content: this.msg.trim()});
+        const {message,status} = result.body;
+        if(status==0) { 
+          const date = moment(Date.now()).format("YYYY-MM-DD HH:mm:ss");
+          this.list.unshift({user_name:"匿名用户",content: this.msg.trim(),add_time:date});
+        }else {
+          Toast('评论失败');
+        } 
       }
     }
   }

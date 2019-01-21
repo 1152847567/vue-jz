@@ -17,8 +17,8 @@
     data: ()=>({
       src: [
         {title:'新闻资讯',url:'static/images/menu1.png',to:'/home/newslist'},
-        {title:'图片分享',url:'static/images/menu2.png',to:'/home/home2'},
-        {title:'商品购买',url:'static/images/menu3.png',to:'/home/home3'},
+        {title:'图片分享',url:'static/images/menu2.png',to:'/home/photoslist'},
+        {title:'商品购买',url:'static/images/menu3.png',to:'/home/goodslist'},
         {title:'留言反馈',url:'static/images/menu4.png',to:'/home/home4'},
         {title:'视频专区',url:'static/images/menu5.png',to:'/home/home5'},
         {title:'联系我们',url:'static/images/menu6.png',to:'/home/home6'}
