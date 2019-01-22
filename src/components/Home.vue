@@ -1,11 +1,12 @@
 <template>
   <!-- 子组件的模板 -->
   <div class="home">
-    <van-swipe :autoplay="1500" indicator-color="pink" class="home-swipe">
+    <swiper :lunbotuList="lunbotuList"></swiper>
+    <!-- <van-swipe :autoplay="1500" indicator-color="pink" class="home-swipe">
       <van-swipe-item v-for="item in lunbotuList" :key="item.img">
         <img :src="item.img">
       </van-swipe-item>
-    </van-swipe>
+    </van-swipe> -->
     <!-- <div class="demo-icon">
       <div class="van-col van-col--6">
         <i class="van-icon ">
@@ -50,6 +51,7 @@
 
 <script>
 import { Toast } from "vant";
+import swiper from './homeChildrens/Swiper.vue'
 import demo from './homeChildrens/Demo.vue'
 // es6 的暴露方式 类似于 module.export = {}
 export default {
@@ -73,22 +75,17 @@ export default {
     this.getlunbotu();
   },
   components: {
+    swiper,
     demo
   }
 };
 </script>
 
 
-<style lang="less" scoped>
+<style lang="less">
 @color: pink;
 .home {
-  .home-swipe {
-    // overflow-x: hidden;
-    height: 210px;
-    img {
-      width: 100%;
-    }
-  }
+  
 }
   
 

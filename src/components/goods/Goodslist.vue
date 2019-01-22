@@ -2,7 +2,7 @@
 <!-- 子组件的模板 -->
   <div class="goodslist">
     <ul>
-      <li class="gooditem" v-for="item in goodlist" :key="item.id">
+      <li class="gooditem" v-for="item in goodlist" :key="item.id" @click="goGoodInfor(item.id)">
         <img :src="item.img_url">
         <div class="content">
           <h2>{{item.zhaiyao}}</h2>
@@ -25,7 +25,7 @@ import {Toast} from 'vant';
 // es6 的暴露方式 类似于 module.export = {}
   export default {
     data: ()=>({
-      number: 1,
+      pageindex: 1,
       goodlist: []
     }),
     created(){
@@ -33,9 +33,9 @@ import {Toast} from 'vant';
     },
     methods: {
       async getGoods(){
-        const result = await this.$http.get('api/getgoods?pageindex='+this.number);
-        console.log(result.body)
-        const {message,status} = result.body;
+        const result = await this.$http.get('api/getgoods?pageindex='+this.pageindex);
+        // console.log(result.body)
+        const {body:{message,status}} = result;
         if(status==0){
           this.goodlist = this.goodlist.concat(message);
         }else {
@@ -45,6 +45,10 @@ import {Toast} from 'vant';
       getMove(){
         this.number++;
         this.getGoods();  
+      },
+      goGoodInfor(id){
+        // this.$router.push('/home/goodsInfor/'+id);
+        this.$router.push({name:'goodsInfor',params: {id:id}})
       }
     }
   }
@@ -58,6 +62,7 @@ import {Toast} from 'vant';
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    // box-sizing: border-box;
     .gooditem {
       width: 46%;
       height: 265px;

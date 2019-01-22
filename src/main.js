@@ -4,8 +4,12 @@ import Vue from 'vue'
 import router from './router'
 import App from './App'
 // 引入vant UI
-import { NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Card, Button, Tab, Tabs,Lazyload  } from 'vant';
-Vue.use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Card).use(Button).use(Tab).use(Tabs).use(Lazyload);
+import { NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Card, Button, Tab, Tabs,Lazyload,Stepper   } from 'vant';
+Vue.use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Card).use(Button).use(Tab).use(Tabs).use(Lazyload).use(Stepper);
+
+// 引入vuex
+import store from './store'
+
 
 // 引入vue-resource 发送ajax
 import VueResource from 'vue-resource';
@@ -27,5 +31,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   render: c => c(App)
 })

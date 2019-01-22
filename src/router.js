@@ -9,11 +9,15 @@ import newsinfor from './components/news/Newsinfor.vue'
 import photoslist from './components/photos/Photoslist.vue'
 import photosInfor from './components/photos/PhotosInfor.vue'
 import goodslist from './components/goods/Goodslist.vue'
+import goodsInfor from './components/goods/GoodsInfor.vue'
+import goodsdesc from './components/goods/Goodsdesc.vue'
+import goodscomment from './components/goods/Goodscomment.vue'
 
-Vue.use(VueRouter)
+
+Vue.use(VueRouter) 
 
 export default new VueRouter({
-  routes: [
+  routes: [ 
     {path: '/',redirect: '/home/goodslist'},
     {path: '/home',component: home},
     {path: '/home/newslist',component: newslist},
@@ -21,6 +25,9 @@ export default new VueRouter({
     {path: '/home/photoslist',component: photoslist},
     {path: '/home/photosInfor/:id',component: photosInfor},
     {path: '/home/goodslist',component: goodslist},
+    {path: '/home/goodsInfor/:id',component: goodsInfor,name:"goodsInfor"},
+    {path: '/home/goodsdesc/:id',component: goodsdesc,name:"goodsdesc"},
+    {path: '/home/goodscomment/:id',component: goodscomment,name:"goodscomment"},
     {path: '/cart',component: cart},
     {path: '/member',component: member},
     {path: '/search',component: search}
