@@ -4,10 +4,10 @@ import Vue from 'vue'
 import router from './router'
 import App from './App'
 // 引入vant UI
-import { NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Card, Button, Tab, Tabs,Lazyload,Stepper   } from 'vant';
-Vue.use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Card).use(Button).use(Tab).use(Tabs).use(Lazyload).use(Stepper);
+import { NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Card, Button, Tab, Tabs,Lazyload,Stepper,SubmitBar,Checkbox,CheckboxGroup   } from 'vant';
+Vue.use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Card).use(Button).use(Tab).use(Tabs).use(Lazyload).use(Stepper).use(SubmitBar).use(Checkbox).use(CheckboxGroup);
 
-// 引入vuex
+// 引入store
 import store from './store'
 
 

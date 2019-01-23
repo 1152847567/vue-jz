@@ -72,7 +72,7 @@ import swiper from '../homeChildrens/Swiper.vue'
       },
       async getGoodsInfor(){
         const result = await this.$http.get('api/goods/getinfo/'+this.id);
-        console.log(result.body)
+        // console.log(result.body)
         const {body: {message,status}} = result;
         if(status==0){
           this.details = message;
@@ -86,15 +86,15 @@ import swiper from '../homeChildrens/Swiper.vue'
         setTimeout(()=>{
           this.buttonflag = !this.buttonflag;
         },700)
-        console.log(this.value)
-        // this.$store.commit('add');
-        // 将数据保存到localStorage
-        // let cart = JSON.parse(localStorage.getItem('cart' || '[]'));
-        // const arr = this.details;
-        // arr.num = this.value;
-        
+        // 将商品信息加入到car中
+        var goodsInfor = {
+          id: this.id,
+          count: this.value,
+          price: this.details.sell_price,
+          selected: true
+        };
+        this.$store.commit('addTocar',goodsInfor);
 
-        // localStorage.setItem('cart',JSON.stringify(cart));
       },
       getMove(){
         this.$router.push('/home/goodsdesc/'+this.id);

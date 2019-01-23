@@ -18,7 +18,7 @@ Vue.use(VueRouter)
 
 export default new VueRouter({
   routes: [ 
-    {path: '/',redirect: '/home/goodslist'},
+    {path: '/',redirect: '/home'},
     {path: '/home',component: home},
     {path: '/home/newslist',component: newslist},
     {path: '/home/newsinfor/:id',component: newsinfor},

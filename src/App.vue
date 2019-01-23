@@ -16,7 +16,7 @@
     <van-tabbar v-model="active">
       <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
       <van-tabbar-item icon="user-o" to="/member">会员</van-tabbar-item>
-      <van-tabbar-item icon="shopping-cart-o" :info="$store.state.count" to="/cart" id="car">购物车</van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart-o" :info="$store.getters.getAllCount" to="/cart" id="car">购物车</van-tabbar-item>
       <van-tabbar-item icon="search" to="/search">搜索</van-tabbar-item>
     </van-tabbar>
   </div>
@@ -25,12 +25,12 @@
 // es6 的暴露方式 类似于 module.export = {}
   export default {
     data: ()=>({
-      active: 0,
+      active: 0
     }),
     methods: {
       goBack(){
         this.$router.go(-1);
-      }
+      } 
     }
   }
 
