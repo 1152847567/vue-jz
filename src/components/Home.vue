@@ -84,9 +84,5 @@ export default {
 
 <style lang="less">
 @color: pink;
-.home {
-  
-}
-  
 
 </style>
