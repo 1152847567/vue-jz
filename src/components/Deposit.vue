@@ -1,7 +1,6 @@
 <template>
 <!-- 子组件的模板 -->
-  <div class="register">
-    this is register component 
+  <div class="deposit">存钱
     
   </div>
 </template>

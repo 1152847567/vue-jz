@@ -1,7 +1,7 @@
 <template>
 <!-- 子组件的模板 -->
-  <div class="goodsdesc">
-    goodsdesc
+  <div class="bookkeeping">
+    记账
   </div>
 </template>
 <script>

@@ -1,5 +1,5 @@
 {
-  "name": "vue-wfj",
+  "name": "vue-jz",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "'1152847567' <1152847567@qq.com>",
@@ -11,9 +11,8 @@
   },
   "dependencies": {
     "animate.css": "^3.7.0",
-    "axios": "^0.18.0",
-    "mint-ui": "^2.2.13",
-    "moment": "^2.23.0",
+    "echarts": "^4.2.1",
+    "v-distpicker": "^1.2.1",
     "vant": "^1.5.2",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.1",
